@@ -13,16 +13,8 @@ import java.security.SecureRandom;
 
 public class BallPane extends Pane {
   SecureRandom srand = new SecureRandom();
-  int right = 0;
-  int left = 0;
-  int first = 0;
-  int second = 0;
-  int third = 0;
-  int forth = 0;
-  int fifth = 0;
-  int sixth = 0;
-  int seventh = 0;
-  int eighth = 0;
+
+  
   public final double radius = 5;
   private double x = 200, y = radius;
   private double dx = 0.36, dy = 1;
@@ -48,14 +40,7 @@ public class BallPane extends Pane {
     animation.pause();
   }
 
-  public void increaseSpeed() {
-    animation.setRate(animation.getRate() + 0.1);
-  }
 
-  public void decreaseSpeed() {
-    animation.setRate(
-      animation.getRate() > 0 ? animation.getRate() - 0.1 : 0);
-  }
 
   public DoubleProperty rateProperty() {
     return animation.rateProperty();
@@ -72,6 +57,7 @@ public class BallPane extends Pane {
 			}else{
 				dx *= 1; 
 			}
+
 		 // Change ball move direction
 		}
 		if( y == 166 - 2*radius ){
@@ -81,6 +67,7 @@ public class BallPane extends Pane {
 			}else{
 				dx *= 1; 
 			}
+
 		}
 		if(y == 194 - 2*radius ){
 			random = srand.nextInt() % 2 ;
@@ -89,6 +76,7 @@ public class BallPane extends Pane {
 			}else{
 				dx *= 1; 
 			}
+
 		}
 		if(y == 222 - 2*radius){
 			random = srand.nextInt() % 2 ;
@@ -97,6 +85,7 @@ public class BallPane extends Pane {
 			}else{
 				dx *= 1; 
 			}
+
 		}
 		if(y == 250 - 2*radius){
 			random = srand.nextInt() % 2 ;
@@ -105,6 +94,7 @@ public class BallPane extends Pane {
 			}else{
 				dx *= 1; 
 			}
+
 		}
 		if(y == 278 - 2*radius ){
 			random = srand.nextInt() % 2 ;
@@ -113,6 +103,16 @@ public class BallPane extends Pane {
 			}else{
 				dx *= 1; 
 			}
+
+		}
+		if(y == 306 - 2*radius ){
+			random = srand.nextInt() % 2 ;
+			if(random == 1){
+				dx *= -1; 	
+			}else{
+				dx *= 1; 
+			}
+
 		}
 		x += dx;
 	
