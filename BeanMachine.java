@@ -4,6 +4,7 @@ import javafx.application.Application;
 import javafx.collections.ObservableList;
 import javafx.scene.Scene;
 import javafx.scene.layout.*;
+import javafx.scene.control.*;
 import javafx.scene.paint.Color;
 import javafx.scene.*;
 import javafx.scene.input.*;
@@ -16,6 +17,7 @@ import javafx.event.*;
 
 public class BeanMachine extends Application {
 	int n = 0 ;
+
 	BallPane[] ball = new BallPane[10];
   @Override // Override the start method in the Application class
   public void start(Stage primaryStage) {
@@ -23,10 +25,15 @@ public class BeanMachine extends Application {
 	
 	pane.getChildren().add(new DisplayBeanMachine());	
 	
-	//pane.getChildren().add(ball[0]);
 	
-	
-	pane.setOnMousePressed(e ->{ball[n] = new BallPane();pane.getChildren().add(ball[n]);ball[n].requestFocus(); n++;});
+
+	pane.setOnMousePressed(e ->{
+		ball[n] = new BallPane();
+		pane.getChildren().add(ball[n]);
+		ball[n].requestFocus(); 
+		n++;
+		
+	});
 	
 	
 	
