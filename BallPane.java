@@ -49,7 +49,7 @@ public class BallPane extends Pane {
   protected void moveBall() {
 	int random;
     // Check boundaries
-    if(y >= 138-radius && y< 328){
+    if(y >= 138-2*radius && y< 328){
 		if (y == 138-2*radius ) {
 			random = srand.nextInt() % 2 ;
 			if(random == 1){

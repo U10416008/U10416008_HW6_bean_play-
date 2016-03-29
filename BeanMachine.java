@@ -14,11 +14,12 @@ import javafx.util.*;
 import javafx.animation.*;
 import javafx.beans.property.*;
 import javafx.event.*;
+import java.util.*;
 
 public class BeanMachine extends Application {
 	int n = 0 ;
-
-	BallPane[] ball = new BallPane[10];
+	ArrayList<BallPane> ball = new ArrayList<>();
+	//BallPane[] ball = new BallPane[10];
   @Override // Override the start method in the Application class
   public void start(Stage primaryStage) {
 	StackPane pane = new StackPane();
@@ -28,9 +29,9 @@ public class BeanMachine extends Application {
 	
 
 	pane.setOnMousePressed(e ->{
-		ball[n] = new BallPane();
-		pane.getChildren().add(ball[n]);
-		ball[n].requestFocus(); 
+		ball.add(new BallPane());
+		pane.getChildren().add(ball.get(n));
+		ball.get(n).requestFocus(); 
 		n++;
 		
 	});
