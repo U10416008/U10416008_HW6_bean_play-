@@ -13,35 +13,29 @@ import java.security.SecureRandom;
 
 public class BallPane extends Pane {
   SecureRandom srand = new SecureRandom();
-
-  
+  int right = 0;
+  int left = 0;
   public final double radius = 5;
   private double x = 200, y = radius;
   private double dx = 0.36, dy = 1;
   Circle circle = new Circle(x, y, radius);
   private Timeline animation;
-
   public BallPane() {
     circle.setFill(Color.BLACK); // Set ball color
     getChildren().add(circle); // Place a ball into this pane
 	
     // Create an animation for moving the ball
     animation = new Timeline(
-      new KeyFrame(Duration.millis(10), e -> moveBall()));
+      new KeyFrame(Duration.millis(5), e -> moveBall()));
     animation.setCycleCount(Timeline.INDEFINITE);
     animation.play(); // Start animation
   }
-
-  public void play() {
-    animation.play();
+  public int getRight(){
+	  return right;
   }
-
-  public void pause() {
-    animation.pause();
+  public int getLeft(){
+	  return left;
   }
-
-
-
   public DoubleProperty rateProperty() {
     return animation.rateProperty();
   }
@@ -57,6 +51,12 @@ public class BallPane extends Pane {
 			}else{
 				dx *= 1; 
 			}
+			if(dx > 0){
+				right++;
+			}
+			if(dx < 0){
+				left++;
+			}
 
 		 // Change ball move direction
 		}
@@ -67,6 +67,12 @@ public class BallPane extends Pane {
 			}else{
 				dx *= 1; 
 			}
+			if(dx > 0){
+				right++;
+			}
+			if(dx < 0){
+				left++;
+			}
 
 		}
 		if(y == 194 - 2*radius ){
@@ -75,6 +81,12 @@ public class BallPane extends Pane {
 				dx *= -1; 	
 			}else{
 				dx *= 1; 
+			}
+			if(dx > 0){
+				right++;
+			}
+			if(dx < 0){
+				left++;
 			}
 
 		}
@@ -85,6 +97,12 @@ public class BallPane extends Pane {
 			}else{
 				dx *= 1; 
 			}
+			if(dx > 0){
+				right++;
+			}
+			if(dx < 0){
+				left++;
+			}
 
 		}
 		if(y == 250 - 2*radius){
@@ -93,6 +111,12 @@ public class BallPane extends Pane {
 				dx *= -1; 	
 			}else{
 				dx *= 1; 
+			}
+			if(dx > 0){
+				right++;
+			}
+			if(dx < 0){
+				left++;
 			}
 
 		}
@@ -103,6 +127,12 @@ public class BallPane extends Pane {
 			}else{
 				dx *= 1; 
 			}
+			if(dx > 0){
+				right++;
+			}
+			if(dx < 0){
+				left++;
+			}
 
 		}
 		if(y == 306 - 2*radius ){
@@ -111,6 +141,12 @@ public class BallPane extends Pane {
 				dx *= -1; 	
 			}else{
 				dx *= 1; 
+			}
+			if(dx > 0){
+				right++;
+			}
+			if(dx < 0){
+				left++;
 			}
 
 		}

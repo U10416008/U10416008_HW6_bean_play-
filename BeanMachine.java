@@ -1,4 +1,4 @@
-//U10416008‰∏ÅÊù∞
+//U10416008§B™N
 
 import javafx.application.Application;
 import javafx.collections.ObservableList;
@@ -15,26 +15,58 @@ import javafx.animation.*;
 import javafx.beans.property.*;
 import javafx.event.*;
 import java.util.*;
+import javafx.geometry.*;
 
 public class BeanMachine extends Application {
-	int n = 0 ;
+	int n = 0;
+	int i = 0;
+	int first = 0;
+	int second = 0;
+	int third = 0;
+	int forth = 0;
+	int fifth = 0;
+	int sixth = 0;
+	int seventh = 0;
+	int eighth = 0;
 	ArrayList<BallPane> ball = new ArrayList<>();
+	Label count = new Label();
+	Label sum = new Label("Ball : ");
+	Timeline animation;
 	//BallPane[] ball = new BallPane[10];
   @Override // Override the start method in the Application class
   public void start(Stage primaryStage) {
 	StackPane pane = new StackPane();
-	
 	pane.getChildren().add(new DisplayBeanMachine());	
-	
-	
-
+	pane.getChildren().add(count);
+	pane.getChildren().add(sum);
+	pane.setAlignment(count, Pos.BOTTOM_CENTER);
+	pane.setAlignment(sum, Pos.TOP_LEFT);
 	pane.setOnMousePressed(e ->{
 		ball.add(new BallPane());
 		pane.getChildren().add(ball.get(n));
 		ball.get(n).requestFocus(); 
+		
 		n++;
 		
+		
+		if(n == 1){
+		animation.play();
+		}
+		sum.setText("Ball : " + String.valueOf(n));
+		
+		
 	});
+	
+	animation = new Timeline(
+		new KeyFrame(Duration.millis(1000), e -> {if(ball.get(i).getRight() + ball.get(i).getLeft() == 7){
+			countBall();
+			count.setText("1st: <" +String.valueOf(first) + ">  2nd: <" +String.valueOf(second) + ">  3rd: <" +String.valueOf(third) + ">  4th: <" +String.valueOf(forth)
+				+ ">\n  5th: <" +String.valueOf(fifth) + ">  6th: <" +String.valueOf(sixth) + ">  7th: <" +String.valueOf(seventh) + ">  8th: <" +String.valueOf(eighth)+ ">");
+			}
+		})
+	);
+	animation.setCycleCount(Timeline.INDEFINITE);
+     // Start animation
 	
 	
 	
@@ -45,6 +77,19 @@ public class BeanMachine extends Application {
     primaryStage.setScene(scene); // Place the scene in the stage
     primaryStage.show(); // Display the stage
 	
+  }
+  public void countBall(){
+	  switch(ball.get(i).getRight()){
+				case 0 : first++;break;
+				case 1 : second++;break;
+				case 2 : third++;break;
+				case 3 : forth++;break;
+				case 4 : fifth++;break;
+				case 5 : sixth++;break;
+				case 6 : seventh++;break;
+				case 7 : eighth++;
+			}
+			i++;
   }
   
   /**
